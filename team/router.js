@@ -1,5 +1,6 @@
 const { Router } = require("express");
 const Team = require("./model");
+const City = require("../city/model");
 
 const router = new Router();
 
@@ -30,8 +31,9 @@ router.post("/team", (req, res) => {
 });
 
 router.get("/team/:id", async (req, res) => {
-  const teamID = parseInt(req.params.id);
-  const team = await Team.findByPk(teamID);
+  // const teamID = parseInt(req.params.id);
+  // const team = await Team.findByPk(teamID);
+  const team = await Player.findByPk(req.params.id, { include: [City] });
   if (!team) {
     res.status(404).send("User not found");
   } else {
