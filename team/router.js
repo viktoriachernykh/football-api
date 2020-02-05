@@ -13,9 +13,12 @@ router.get("/team", (req, res, next) => {
   Team.findAll()
     .then(list => res.send(list))
     .catch(err => {
-      console.error("Error here", err);
-      process.exit(1);
+      next(err);
     });
+  // .catch(err => {
+  //   console.error("Error here", err);
+  //   process.exit(1);
+  // });
 });
 
 router.post("/team", (req, res) => {
