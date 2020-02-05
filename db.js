@@ -6,7 +6,7 @@ const databaseUrl =
 const db = new Sequelize(databaseUrl);
 
 // db.sync({ force: true })
-db.sync({ force: true })
+db.sync()
   .then(() => console.log("Database schema has been successfully updated"))
   .catch(err => {
     console.error("Error here", err);

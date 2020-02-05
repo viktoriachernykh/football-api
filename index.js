@@ -9,10 +9,9 @@ const port = process.env.PORT || 4000;
 // const Player = require("./player/model");
 const teamRouter = require("./team/router");
 const playerRouter = require("./player/router");
+const cityRouter = require("./city/router");
 
-app.use(jsonParser);
-app.use(teamRouter);
-app.use(playerRouter);
+app.use(jsonParser, teamRouter, playerRouter, cityRouter);
 
 app.listen(port, () =>
   console.log(`Example TEAM app listening on port ${port}!`)
