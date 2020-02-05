@@ -12,4 +12,11 @@ router.get("/team", (req, res, next) => {
     });
 });
 
+router.post("/team", (req, res) => {
+  Team.create(req.body)
+    .then(team => res.send(team))
+    .catch(err => {
+      next(err);
+    });
+});
 module.exports = router;
